@@ -1,0 +1,21 @@
+.container{
+    border: 2px solid black;
+    border-radius: 2mm;
+}
+.articles{
+    padding: 3%;
+    margin: auto;
+    text-align-last: left;
+}
+.table{
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.show,.edit{
+    color: rgb(55, 106, 233);
+}
+.delete{
+    color: rgb(233, 55, 88);
+}
