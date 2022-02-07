@@ -1,10 +1,10 @@
 .container{
+    margin: 2%;
     border: 2px solid black;
     border-radius: 2mm;
 }
 .articles{
-    padding: 3%;
-    margin: auto;
+    margin: 5%;
     text-align-last: left;
 }
 .table{
