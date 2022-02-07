@@ -1,0 +1,45 @@
+.container{
+    font-family: fangsong;
+    font-size: larger;
+    margin: auto;
+    width: 60%;
+    padding: 0% 0% 2%;
+}
+.articles{
+    margin: 5%;
+    text-align-last: left;
+}
+#table{
+    width: 100%;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+#show,#edit{
+    color: rgb(55, 106, 233);
+}
+#delete{
+    color: rgb(233, 55, 88);
+}
+
+#previous,#next,#create{
+    padding: 1% 2%;
+    margin: 1%;
+    text-align: center;
+    color: black;
+    font-size: larger;
+}
+
+#previous,#next{
+    background-color: rgb(252, 236, 133);
+    float: left;
+}
+
+#page{
+    float: left;
+}
+
+#create{
+    background-color: rgb(242, 250, 92);
+    float: right;
+}

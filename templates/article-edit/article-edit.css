@@ -1,0 +1,31 @@
+.container{
+    width: 60%;
+    align-self: center;
+    font-family: fangsong;
+    font-size: large;
+    margin: auto;
+    padding: 2% 0%;
+}
+
+textarea{
+    width: 100%;
+    margin-top: 1%;
+}
+
+#save,#back{
+    padding: 1% 2%;
+    margin: 2% 0%;
+    text-align: center;
+    color: black;
+    font-size: larger;
+}
+
+#save{
+    background-color: rgb(62, 218, 127);
+    float: left;
+}
+
+#back{
+    background-color: rgb(238, 85, 85);
+    float: right;
+}

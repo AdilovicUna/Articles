@@ -1,0 +1,36 @@
+.container{
+    width: 50%;
+    align-self: center;
+    font-family: fangsong;
+    font-size: large;
+    margin: auto;
+    padding: 2% 0%;
+}
+
+h1{
+    margin-bottom: 1%;
+    padding: 0%;
+}
+.article{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 3%;
+}
+
+#edit,#back{
+    padding: 1% 2%;
+    margin: 3%;
+    text-align: center;
+    color: black;
+    font-size: larger;
+}
+
+#edit{
+    background-color: rgb(40, 157, 220);
+    float: left;
+}
+
+#back{
+    background-color: rgb(252, 236, 133);
+    float: right;
+}

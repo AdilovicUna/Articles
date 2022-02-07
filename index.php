@@ -3,6 +3,10 @@
 $articles = get_db_content();
 $id = 0;
 
+$page_limit = 10;
+$curr_page = 1;
+$total_page = sizeof($articles) / $page_limit;
+
 function get_db_content()
 {
     // get content from database
@@ -24,6 +28,16 @@ function get_db_content()
 
     mysqli_close($connection);
     return $articles;
+}
+
+function get_name()
+{
+    return $GLOBALS['articles'][$GLOBALS['id']]['name'];
+}
+
+function get_content()
+{
+    return $GLOBALS['articles'][$GLOBALS['id']]['content'];
 }
 
 function checkPath($article_num)
@@ -63,7 +77,7 @@ function main($articles)
     
     try
     {
-        require_once(__DIR__ . "/templates/$page[0]/view.php");
+        require_once(__DIR__ . "/templates/$page[0]/$page[0].php");
     }
     catch(Exception $ex)
     {
