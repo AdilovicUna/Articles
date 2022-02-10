@@ -3,10 +3,6 @@
 $articles = get_db_content();
 $id = 0;
 
-$page_limit = 10;
-$curr_page = 1;
-$total_page = sizeof($articles) / $page_limit;
-
 function get_db_content()
 {
     // get content from database
