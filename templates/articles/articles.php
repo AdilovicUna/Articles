@@ -28,7 +28,6 @@ function get_correct_URL($key, $option) {
     <div class="articles">
       <h1>Article list</h1>
       <table id="table">
-        <tbody>
           <?php foreach($GLOBALS['articles'] as $key => $value) {?>
             <tr>
               <td id="name"><?php echo $value['name'] ?></td>
@@ -37,14 +36,14 @@ function get_correct_URL($key, $option) {
               <td><a id="delete" href=<?php echo get_correct_URL($key, 'delete') ?>>Delete</a></td>
             </tr>
           <?php } ?>
-        </tbody>
       </table>
       <button id="previous" type="button">Previous</button>
       <button id="next" type="button">Next</button>
+      <p id="page"></p>
       <button id="create" type="button">Create article</button>
     </div>
-
   </div>
+  <script src="./templates/articles/articles.js"></script>
 </body>
 
 </html>
