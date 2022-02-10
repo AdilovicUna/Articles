@@ -1,26 +1,20 @@
 let curr_page = 1;
 let len = table.rows.length;
 let limit = 10;
-let num_of_pages = Math.floor(len / limit);
-
-if (len % limit != 0) {
-    num_of_pages += 1;
-}
+let num_of_pages = Math.ceil(len / limit);
 
 function split_table() {
     let table = document.getElementById("table");
-    let temp_curr_page = 1
     let elem = 0;
 
     for (let i = 1; i <= num_of_pages; i++) {
-        for (let j = 0; j < limit; j++) {
-            if (temp_curr_page == num_of_pages && j >( len % limit) - 1) {
+        for (let j = 1; j <= 10; j++) {
+            if (i == num_of_pages && len % limit != 0 && j > len % limit) {
                 break;
             }
             table.rows[elem].className = "page_" + i;
             elem++;
         }
-        temp_curr_page++;
     }
 
     show_curr_page();
@@ -68,21 +62,29 @@ function prevHandler() {
     show_curr_page_num();
 }
 
+function newArticleHandler(hide_create){
+    let newArticle = document.getElementById("newArticle");
+    newArticle.hidden = hide_create;
+
+    let showArticles = document.getElementById("showArticles");
+    showArticles.hidden = !hide_create;
+}
+
 function show_buttons(){
     if(curr_page == num_of_pages)
     {
-        next.style.visibility = "hidden";
-        prev.style.visibility = "visible";
+        next.hidden = true;
+        prev.hidden = false;
     }
     else if(curr_page == 1)
     {
-        next.style.visibility = "visible";
-        prev.style.visibility = "hidden";
+        next.hidden = false;
+        prev.hidden = true;
     }
     else
     {
-        next.style.visibility = "visible";
-        prev.style.visibility = "visible";
+        next.hidden = false;
+        prev.hidden = false;
     }
 }
 
@@ -91,6 +93,12 @@ next.addEventListener('click', event => nextHandler());
 
 let prev = document.getElementById("previous");
 prev.addEventListener('click', event => prevHandler());
+
+let createArticle = document.getElementById("createArticle");
+createArticle.addEventListener('click', event => newArticleHandler(false));
+
+let cancel = document.getElementById("back");
+cancel.addEventListener('click', event => newArticleHandler(true));
 
 split_table();
 show_curr_page_num();

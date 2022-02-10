@@ -45,6 +45,23 @@ function update_db($name, $content, $id)
     mysqli_close($connection);
 }
 
+function insert_to_db($name)
+{
+    $connection = mysqli_connect($GLOBALS['config']['server'], $GLOBALS['config']['login'], $GLOBALS['config']['password'], $GLOBALS['config']['database']);
+    if (!$connection) {
+        throw new Exception('Could not connect');
+    }
+
+    $query = "INSERT INTO articles (name) VALUES (?)";
+    $result = mysqli_prepare($connection, $query);
+    $result->bind_param("s", $name);
+    $result->execute();
+
+    $GLOBALS['articles'] = get_db_content();
+
+    mysqli_close($connection);
+}
+
 function get_name()
 {
     return $GLOBALS['articles'][$GLOBALS['id']]['name'];
@@ -53,6 +70,20 @@ function get_name()
 function get_content()
 {
     return $GLOBALS['articles'][$GLOBALS['id']]['content'];
+}
+
+function get_id($name)
+{
+    $result = 0;
+    foreach($GLOBALS['articles'] as $key => $value)
+    {
+        if($value['name'] == $name)
+        {
+            $result = $value['id'];
+            break;
+        }
+    }
+    return $result;
 }
 
 function checkPath($article_num)
@@ -64,7 +95,7 @@ function checkPath($article_num)
     if ($_REQUEST['page'] != "articles") {
         $page = explode('/', $_REQUEST['page']);
         if (($page[0] != "article-edit" && $page[0] != "article") ||
-            intval($page[1]) < 0 || intval($page[1]) > $article_num
+            intval($page[1]) < 0 || !array_key_exists($page[1],$GLOBALS['articles'])
         ) {
             return false;
         }
@@ -102,9 +133,17 @@ function main($articles)
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (isset($_POST['save'])) {
             update_db($_POST['articleName'], $_POST['articleContent'], $_POST['articleId']);
-            require_once(__DIR__ . "/templates/articles/articles.php");
+            header('Location: ./articles', TRUE, 302);
         }
-    } else {
+        else if(isset($_POST['create']))
+        {
+            $name = $_POST['newName'];
+            insert_to_db($name);
+            header('Location: ./article-edit/' . get_id($name), TRUE, 302);
+        }
+    }
+    else
+    {
         try {
             require_once(__DIR__ . "/templates/$page[0]/$page[0].php");
         } catch (Exception $ex) {

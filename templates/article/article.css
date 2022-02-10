@@ -1,12 +1,3 @@
-.container{
-    width: 50%;
-    align-self: center;
-    font-family: fangsong;
-    font-size: large;
-    margin: auto;
-    padding: 2% 0%;
-}
-
 h1{
     margin-bottom: 1%;
     padding: 0%;
@@ -18,25 +9,11 @@ h1{
     padding: 3%;
 }
 
-a{
-    text-decoration:none;
-    text-align: center;
-    color: black;
-    font-size: larger;
-}
-
-.button{
-    border: 2px solid black;
-    padding: 1% 2%;
-    margin: 2% 0%;
-}
 
 #edit{
+    text-decoration:none;
+    text-align: center;
     background-color: rgb(40, 157, 220);
+    font-size: larger;
     float: left;
-}
-
-#back{
-    background-color: rgb(252, 236, 133);
-    float: right;
 }

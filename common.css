@@ -12,25 +12,25 @@ textarea{
     margin-top: 1%;
 }
 
-.button{
-    border: 2px solid black;
-    padding: 1% 2%;
-    margin: 2% 0%;
-}
-
-a,#save{
+a,#back,#save{
     text-decoration:none;
     text-align: center;
     color: black;
     font-size: larger;
 }
 
-#save{
-    background-color: rgb(62, 218, 127);
-    float: left;
+.button{
+    border: 2px solid black;
+    padding: 1% 2%;
+    margin: 2% 0%;
 }
 
 #back{
     background-color: rgb(238, 85, 85);
     float: right;
+}
+
+#save{
+    background-color: rgb(62, 218, 127);
+    float: left;
 }
