@@ -17,7 +17,7 @@
                     <input type='hidden' name='articleId' value='<?php echo $GLOBALS['id']; ?>'/>
 
                     <label for="fname">Article Name</label><br>
-                    <textarea type="text" name="articleName" rows="1" cols="32" maxlength="32" placeholder="Enter name.."><?php echo get_name(); ?></textarea><br><br>
+                    <textarea type="text" name="articleName" rows="1" cols="32" maxlength="32" placeholder="Enter name.." required><?php echo get_name(); ?></textarea><br><br>
 
                     <label for="fname">Content</label><br>
                     <textarea type="text" name="articleContent" rows="16" cols="64" maxlength="1024" placeholder="Write here.."><?php echo get_content(); ?></textarea><br>

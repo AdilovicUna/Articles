@@ -32,7 +32,7 @@
     <div id="newArticle" hidden>
       <form action="../cms/articles" method="POST">
         <label for="fname">Article Name</label><br>
-        <textarea type="text" name="newName" rows="1" cols="32" maxlength="32" placeholder="Enter name.."></textarea><br><br>
+        <textarea type="text" name="newName" rows="1" cols="32" maxlength="32" placeholder="Enter name.." required></textarea><br><br>
         <input class="button" id="save" name="create" type="submit" value="Create">
       </form>
       <button class="button" id="back" type="button">Cancel</button>
