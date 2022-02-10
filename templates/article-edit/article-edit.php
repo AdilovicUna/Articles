@@ -11,33 +11,22 @@
 
 <body>
     <div class="container">
-        <div class="article">
-            <label for="fname">Article Name</label><br>
-            <textarea type="text" name="articleName" rows="1" cols="32" maxlength="32" placeholder="Enter name.."><?php echo get_name(); ?></textarea><br><br>
+        <div>
+            <form action="../articles" method="POST">
+                <div class="article">
+                    <input type='hidden' name='articleId' value='<?php echo $GLOBALS['id']; ?>'/>
 
-            <label for="fname">Content</label><br>
-            <textarea type="text" name="content" rows="16" cols="64" maxlength="1024" placeholder="Write here.."><?php echo get_content(); ?></textarea><br>
-        </div>
-        <div class="buttons">
-            <button id="save" type="button">Save</button>
-            <button id="back" type="button">Back to articles</button>
+                    <label for="fname">Article Name</label><br>
+                    <textarea type="text" name="articleName" rows="1" cols="32" maxlength="32" placeholder="Enter name.."><?php echo get_name(); ?></textarea><br><br>
+
+                    <label for="fname">Content</label><br>
+                    <textarea type="text" name="articleContent" rows="16" cols="64" maxlength="1024" placeholder="Write here.."><?php echo get_content(); ?></textarea><br>
+                </div>
+                <input class="button" id="save" name="save" type="submit" value="Save">
+            </form>
+            <div class="button" id="back"><a href=<?php echo get_correct_URL(); ?>>Back to articles</a></div>
         </div>
     </div>
-    <script>
-        let save = document.getElementById("save");
-        save.addEventListener('click', event => saveHandler())
-
-        let back = document.getElementById("back");
-        back.addEventListener('click', event => backHandler())
-
-        function saveHandler() {
-            backHandler();
-        }
-
-        function backHandler() {
-            window.location.href = "../articles";
-        }
-    </script>
 </body>
 
 </html>

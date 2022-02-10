@@ -1,17 +1,3 @@
-<?php
-function get_correct_URL($key, $option) {
-  $prefix = "/~31140072/cms/article";
-  switch ($option) {
-    case 'show':
-      return "$prefix/$key";
-    case 'edit':
-      return "$prefix-edit/$key";
-    case 'delete':
-      return $prefix . "s/";
-  }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -33,7 +19,7 @@ function get_correct_URL($key, $option) {
               <td id="name"><?php echo $value['name'] ?></td>
               <td><a id="show" href=<?php echo get_correct_URL($key, 'show') ?>>Show</a></td>
               <td><a id="edit" href=<?php echo get_correct_URL($key, 'edit') ?>>Edit</a></td>
-              <td><a id="delete" href=<?php echo get_correct_URL($key, 'delete') ?>>Delete</a></td>
+              <td><a id="delete" href=<?php echo get_correct_URL($key) ?>>Delete</a></td>
             </tr>
           <?php } ?>
       </table>

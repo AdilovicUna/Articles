@@ -15,25 +15,10 @@
             <p1 id="content"><?php echo get_content() ?></p2>
         </div>
         <div class="buttons">
-            <button id="edit" type="button">Edit</button>
-            <button id="back" type="button">Back to articles</button>
+            <div class="button" id="edit"><a href=<?php echo get_correct_URL($GLOBALS['id'],"edit"); ?>>Edit</a></div>
+            <div class="button" id="back"><a href=<?php echo get_correct_URL(); ?>>Back to articles</a></div>
         </div>
     </div>
-    <script>
-        let edit = document.getElementById("edit");
-        edit.addEventListener('click', event => editHandler())
-
-        let back = document.getElementById("back");
-        back.addEventListener('click', event => backHandler())
-
-        function editHandler() {
-            window.location.href = "../article-edit/<?php echo $GLOBALS['id'];?>";
-        }
-
-        function backHandler() {
-            window.location.href = "../articles";
-        }
-    </script>
 </body>
 
 </html>

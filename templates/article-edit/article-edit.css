@@ -12,9 +12,14 @@ textarea{
     margin-top: 1%;
 }
 
-#save,#back{
+.button{
+    border: 2px solid black;
     padding: 1% 2%;
     margin: 2% 0%;
+}
+
+a,#save{
+    text-decoration:none;
     text-align: center;
     color: black;
     font-size: larger;
