@@ -11,9 +11,9 @@
 </head>
 <body>
     <div class="container">
-        <h1><?php echo get_name() ?></h1>
+        <h1><?php echo htmlspecialchars(get_name()) ?></h1>
         <div class="article">
-            <p1 id="content"><?php echo get_content() ?></p2>
+            <p1 id="content"><?php echo htmlspecialchars(get_content()); ?></p2>
         </div>
         <div class="buttons">
             <div class="button" id="edit"><a href=<?php echo get_correct_URL($GLOBALS['id'],"edit"); ?>>Edit</a></div>

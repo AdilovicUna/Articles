@@ -13,17 +13,30 @@
 <body>
   <div class="container">
     <div id="showArticles">
+      <div id="tags">
+        <label for="select_tags">Select tag</label>
+        <input list="filter_tags" id="all_tags" name="all_tags" />
+        <datalist id="filter_tags">
+          <?php foreach ($GLOBALS['tags'] as $key => $value) { ?>
+            <option class="tags" id=<?php echo "$key" ?> value=<?php echo "$key" ?>>
+            <?php } ?>
+        </datalist>
+        <button onclick="filterHandler();">Filter</button>
+      </div>
       <h1>Article list</h1>
-      <table id="table">
-        <?php foreach ($GLOBALS['articles'] as $key => $value) { ?>
-          <tr>
-            <td id="name"><?php echo $value['name'] ?></td>
-            <td><a id="show" href=<?php echo get_correct_URL($key, 'show') ?>>Show</a></td>
-            <td><a id="edit" href=<?php echo get_correct_URL($key, 'edit') ?>>Edit</a></td>
-            <td><a id="delete" href=<?php echo get_correct_URL($key) ?>>Delete</a></td>
-          </tr>
-        <?php } ?>
-      </table>
+      <div id="articlesTable">
+        <table id="table">
+          <?php foreach ($GLOBALS['articles'] as $key => $value) { ?>
+            <tr>
+              <td id="name"><?php echo $value['name'] ?></td>
+              <td class="tag"><?php echo $value['tag'] ?></td>
+              <td><a id="show" href=<?php echo get_correct_URL($key, 'show') ?>>Show</a></td>
+              <td><a id="edit" href=<?php echo get_correct_URL($key, 'edit') ?>>Edit</a></td>
+              <td><a class="delete" id=<?php echo "$key"; ?>>Delete</a></td>
+            </tr>
+          <?php } ?>
+        </table>
+      </div>
       <button id="previous" type="button">Previous</button>
       <button id="next" type="button">Next</button>
       <p id="page"></p>
@@ -31,7 +44,7 @@
     </div>
     <div id="newArticle" hidden>
       <form action="../cms/articles" method="POST">
-        <label for="fname">Article Name</label><br>
+        <label for="fname">Name</label><br>
         <textarea type="text" name="newName" rows="1" cols="32" maxlength="32" placeholder="Enter name.." required></textarea><br><br>
         <input class="button" id="save" name="create" type="submit" value="Create">
       </form>

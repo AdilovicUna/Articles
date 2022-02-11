@@ -1,5 +1,5 @@
 #showArticles,#newArticle{
-    margin: 5%;
+    margin: 3%;
     text-align-last: left;
 }
 
@@ -9,11 +9,19 @@
     border-bottom: 1px solid black;
 }
 
+.tag{
+    border-radius: 50px;
+    background-color: rgb(31, 133, 133);
+    text-align-last: center;
+    color: white;
+    font-size: small;   
+}
+
 #show,#edit{
     color: rgb(55, 106, 233);
 }
 
-#delete{
+.delete{
     color: rgb(233, 55, 88);
 }
 
